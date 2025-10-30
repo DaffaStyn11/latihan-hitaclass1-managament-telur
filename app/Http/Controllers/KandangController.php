@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\kandang;
-use Inertia\Inertia;    
+use Inertia\Inertia;
 
 class KandangController extends Controller
 {
@@ -23,7 +24,7 @@ class KandangController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('kandang/create');
     }
 
     /**
@@ -31,7 +32,17 @@ class KandangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validasi forminput
+        $validated = $request->validate([
+            'nama_kandang' => 'required',
+            'jumlah_ayam' => 'nullable',
+            'lokasi' => 'required'
+        ]);
+
+        //menyiman ke database
+        kandang::create($validated);
+
+        return redirect()->route('kandang.index')->with('success', 'data kandang berhasil di simpan');
     }
 
     /**
@@ -65,5 +76,4 @@ class KandangController extends Controller
     {
         //
     }
-
 }

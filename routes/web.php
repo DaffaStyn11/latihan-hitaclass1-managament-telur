@@ -21,7 +21,7 @@ use App\Http\Controllers\PenjualanController;
 // PUT/PATCH /kandang/{id} -> update
 // DELETE /kandang/{id} -> destroy  
 
-Route::resource('/', KandangController::class);
+Route::resource('kandang', KandangController::class);
 
 Route::resource('pakan', PakanController::class);
 
