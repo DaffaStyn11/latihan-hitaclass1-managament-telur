@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\kandang;
 use Inertia\Inertia;
 
+
 class KandangController extends Controller
 {
     /**
