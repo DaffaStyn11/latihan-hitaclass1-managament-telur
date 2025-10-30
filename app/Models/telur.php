@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class telur extends Model
+class Telur extends Model
 {
     protected $table = 'telurs';
 

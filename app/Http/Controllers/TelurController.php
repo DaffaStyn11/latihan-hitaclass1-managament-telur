@@ -22,7 +22,7 @@ class TelurController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('telur/create');
     }
 
     /**
@@ -30,7 +30,13 @@ class TelurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+        'jumlah_telur' => 'required',
+        'harga_telur' => 'required',
+        ]);
+
+        telur::create($validated);
+        return redirect()->route('telur.index')->with('success','data berhasil di simpan');
     }
 
     /**

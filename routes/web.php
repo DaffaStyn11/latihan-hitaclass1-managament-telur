@@ -10,7 +10,6 @@ use App\Http\Controllers\PenjualanController;
 // Route::get('/', function () {
 //     return Inertia::render('welcome');
 // })->name('home');
-
 // resource digunakan untuk membuat route CRUD secara otomatis
 // ini akan membuat route seperti:
 // GET /kandang -> index
@@ -19,8 +18,7 @@ use App\Http\Controllers\PenjualanController;
 // GET /kandang/{id} -> show
 // GET /kandang/{id}/edit -> edit
 // PUT/PATCH /kandang/{id} -> update
-// DELETE /kandang/{id} -> destroy  
-
+// DELETE /kandang/{id} -> destroy
 Route::resource('kandang', KandangController::class);
 
 Route::resource('pakan', PakanController::class);

@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Models\pakan;
+use App\Models\Pakan;
 
 class PakanController extends Controller
 {
@@ -14,8 +15,8 @@ class PakanController extends Controller
     {
         $Pakans = pakan::all();
 
-        return Inertia::render('pakan/index',[
-            'pakans'=>$Pakans
+        return Inertia::render('pakan/index', [
+            'pakans' => $Pakans
         ]);
     }
 
@@ -24,7 +25,7 @@ class PakanController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('pakan/create');
     }
 
     /**
@@ -32,7 +33,15 @@ class PakanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama_pakan' => 'required',
+            'jumlah_pakan' => 'nullable',
+            'harga_pakan' => 'nullable',
+            'satuan' => 'required',
+        ]);
+
+        pakan::create($validated);
+        return redirect()->route('pakan.index')->with('success', 'data berhasil di simpan');
     }
 
     /**

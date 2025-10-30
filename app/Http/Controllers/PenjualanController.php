@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Models\penjualan;
+use App\Models\Penjualan;
 
 class PenjualanController extends Controller
 {
@@ -23,7 +23,7 @@ class PenjualanController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('penjualan/create');
     }
 
     /**
@@ -31,7 +31,19 @@ class PenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'jumlah_telur' => 'required|numeric|min:1',
+            'harga_satuan' => 'required|numeric|min:0',
+        ]);
+
+        //  Hitung total harga otomatis
+        $validated['total_harga'] = $validated['jumlah_telur'] * $validated['harga_satuan'];
+
+        // Simpan ke database
+        penjualan::create($validated);
+
+        // Redirect ke halaman daftar penjualan dengan pesan sukses
+        return redirect()->route('penjualan.index')->with('success', 'Data penjualan berhasil disimpan.');
     }
 
     /**

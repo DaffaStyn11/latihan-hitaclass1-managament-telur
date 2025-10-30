@@ -23,7 +23,7 @@ const PenjualanIndex: React.FC = () =>{
                         <tr className="bg-gray-100">
                             <th className="py-2 px-4 border-b">ID</th>
                             <th className="py-2 px-4 border-b">Jumlah Telur</th>
-                            <th className="py-2 px-4 border-b">Harga Satuanr</th>
+                            <th className="py-2 px-4 border-b">Harga Satuan</th>
                             <th className="py-2 px-4 border-b">Total Harga</th>
                             <th className="py-2 px-4 border-b">Dibuat Pada</th>
                             <th className="py-2 px-4 border-b">Diupdate Pada</th>

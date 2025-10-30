@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\kandang;
+use App\Models\Kandang;
 use Inertia\Inertia;
 
 

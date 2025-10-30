@@ -40,7 +40,7 @@ const KandangIndex: React.FC = () => {
                                                 <tr key={kandang.id}>
                                                     <td className="py-2 px-4 border-b">{kandang.id}</td>
                                                     <td className="py-2 px-4 border-b">{kandang.nama_kandang}</td>
-                                                    <td className="py-2 px-4 border-b">{kandang.jumlah_ayam}</td>   
+                                                    <td className="py-2 px-4 border-b">{kandang.jumlah_ayam}</td>
                                                     <td className="py-2 px-4 border-b">{kandang.lokasi}</td>
                                                     <td className="py-2 px-4 border-b">
                                                         {kandang.created_at ? new Date(kandang.created_at).toLocaleDateString() : ''}
