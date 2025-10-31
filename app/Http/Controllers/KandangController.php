@@ -59,7 +59,8 @@ class KandangController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $kandang = Kandang::findOrFail($id);
+        return Inertia::render('kandang/edit', ['kandang' => $kandang]);
     }
 
     /**
@@ -67,7 +68,15 @@ class KandangController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'nama_kandang' => 'required',
+            'jumlah_ayam' => 'nullable',
+            'lokasi' => 'required',
+        ]);
+
+        $kandang = Kandang::findOrFail($id);
+        $kandang->update($validated);
+        return redirect()->route('kandang.index')->with('success','data berhasil di update');
     }
 
     /**

@@ -59,7 +59,8 @@ class PenjualanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $penjualan = Penjualan::findOrFail($id);
+        return Inertia::render('penjualan/edit',['penjualan' => $penjualan]);
     }
 
     /**
@@ -67,7 +68,18 @@ class PenjualanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+$validated = $request->validate([
+        'jumlah_telur' => 'required|numeric|min:1',
+        'harga_satuan' => 'required|numeric|min:0',
+    ]);
+
+    // Hitung total harga otomatis
+    $validated['total_harga'] = $validated['jumlah_telur'] * $validated['harga_satuan'];
+
+    $penjualan = Penjualan::findOrFail($id);
+    $penjualan->update($validated);
+
+    return redirect()->route('penjualan.index')->with('success', 'Data penjualan berhasil diupdate.');
     }
 
     /**

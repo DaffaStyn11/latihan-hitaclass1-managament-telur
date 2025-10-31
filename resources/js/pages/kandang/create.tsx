@@ -20,7 +20,7 @@ const CreateKandang: React.FC = () => {
     };
 
     return (
-        <div className='p-6 max-w-xl mx-auto'>
+        <div className='p-6 max-w-xl mx-auto border'>
         <form onSubmit={handleSubmit} className="space-y-4">
             {/* Input Nama Kandang */}
             <div>

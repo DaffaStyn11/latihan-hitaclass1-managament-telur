@@ -30,7 +30,7 @@ const CreatePenjualan: React.FC = () => {
     return (
         <div className="mx-auto max-w-xl p-6">
             <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Input Nama pakan */}
+                {/* Input Nama jumlah telur */}
                 <div>
                     <label className="mb-1 block font-medium">Jumlah Telur</label>
                     <input

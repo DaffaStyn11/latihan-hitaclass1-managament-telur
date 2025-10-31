@@ -57,7 +57,8 @@ class PakanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $pakan = Pakan::findOrFail($id);
+        return Inertia::render('pakan/edit', ['pakan' => $pakan]);
     }
 
     /**
@@ -65,7 +66,17 @@ class PakanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+         $validated = $request->validate([
+            'nama_pakan' => 'required',
+            'jumlah_pakan' => 'nullable',
+            'harga_pakan' => 'nullable',
+            'satuan' => 'required',
+        ]);
+
+        $pakan = Pakan::findOrFail($id);
+        $pakan->update($validated);
+        return redirect()->route('pakan.index')->with('success','data berhasil di update');
+
     }
 
     /**
