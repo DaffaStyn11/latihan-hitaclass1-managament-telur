@@ -62,7 +62,7 @@ const CreatePenjualan: React.FC = () => {
                         placeholder="total harga"
                         name="total_harga"
                         value={values.total_harga}
-                        readOnly // ✅ agar tidak bisa diketik manual
+                        readOnly // agar tidak bisa diketik manual
                         className="w-full rounded border border-gray-300 px-3 py-2"
                     />
                 </div>

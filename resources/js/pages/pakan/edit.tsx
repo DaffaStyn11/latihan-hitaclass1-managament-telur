@@ -47,7 +47,7 @@ const EditPakan: React.FC = () => {
                 </div>
 
                 <div>
-                    <label className="mb-1 block font-medium">Jumlah</label>
+                    <label className="mb-1 block font-medium">Jumlah Pakan</label>
                     <input
                         type="number"
                         placeholder="masukan jumlah pakan"
@@ -59,7 +59,7 @@ const EditPakan: React.FC = () => {
                 </div>
 
                 <div>
-                    <label className="mb-1 block font-medium">Harga</label>
+                    <label className="mb-1 block font-medium">Harga Harga</label>
                     <input
                         type="text"
                         placeholder="masukan harga pakan"

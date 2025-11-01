@@ -1,22 +1,20 @@
 import { router, usePage } from "@inertiajs/react";
 import { useState } from "react";
 
-interface Kandang
+interface Telur
 {
     id: number,
-    nama_kandang: string,
-    jumlah_ayam: number,
-    lokasi: string,
+    jumlah_telur: string,
+    harga_telur: number,
 }
 
 const EditPenjualan: React.FC = () => {
-    const { props } = usePage<{ kandang: Kandang}>();
-    const {kandang} = props;
+    const { props } = usePage<{ telur: Telur}>();
+    const {telur} = props;
 
     const [values, setValues] = useState({
-        nama_kandang: kandang.nama_kandang || '',
-        jumlah_ayam: kandang.jumlah_ayam || 0,
-        lokasi: kandang.lokasi || '',
+        jumlah_telur: telur.jumlah_telur || '',
+        harga_telur: telur.harga_telur || 0,
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,45 +23,33 @@ const EditPenjualan: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        router.put(`/kandang/${kandang.id}`, values);
+        router.put(`/telur/${telur.id}`, values);
     };
 
 
     return (
         <div className="mx-auto max-w-xl p-6">
             <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Input Nama kandang */}
+                {/* Input jumlah telur */}
                 <div>
-                    <label className="mb-1 block font-medium">Nama kandang</label>
+                    <label className="mb-1 block font-medium">Jumlah Telur</label>
                     <input
                         type="text"
-                        placeholder="masukan nama kandang"
-                        name="nama_kandang"
-                        value={values.nama_kandang}
+                        placeholder="masukan jumlah telur"
+                        name="jumlah_telur"
+                        value={values.jumlah_telur}
                         onChange={handleChange}
                         className="w-full rounded border border-gray-300 px-3 py-2"
                     />
                 </div>
 
                 <div>
-                    <label className="mb-1 block font-medium">Jumlah</label>
+                    <label className="mb-1 block font-medium">Harga Telur</label>
                     <input
                         type="number"
                         placeholder="masukan jumlah ayam"
-                        name="jumlah_ayam"
-                        value={values.jumlah_ayam}
-                        onChange={handleChange}
-                        className="w-full rounded border border-gray-300 px-3 py-2"
-                    />
-                </div>
-
-                <div>
-                    <label className="mb-1 block font-medium">Harga</label>
-                    <input
-                        type="text"
-                        placeholder="masukan lokasi"
-                        name="lokasi"
-                        value={values.lokasi}
+                        name="harga_telur"
+                        value={values.harga_telur}
                         onChange={handleChange}
                         className="w-full rounded border border-gray-300 px-3 py-2"
                     />

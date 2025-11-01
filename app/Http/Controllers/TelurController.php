@@ -52,7 +52,8 @@ class TelurController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $telur = Telur::findOrFail($id);
+        return Inertia::render('telur/edit', ['telur' => $telur]);
     }
 
     /**
@@ -60,7 +61,15 @@ class TelurController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+         $validated = $request->validate([
+         'jumlah_telur' => 'required',
+        'harga_telur' => 'required',
+        ]);
+
+        $telur = Telur::findOrFail($id);
+        $telur->update($validated);
+        return redirect()->route('telur.index')->with('success','data berhasil di update');
+
     }
 
     /**
