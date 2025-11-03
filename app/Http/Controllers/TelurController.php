@@ -44,7 +44,10 @@ class TelurController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $telur = Telur::findOrFail($id);
+        return Inertia::render('telur/show',[
+            'telur' => $telur
+        ]);
     }
 
     /**
@@ -77,6 +80,9 @@ class TelurController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $telur = Telur::findOrFail($id);
+        $telur ->delete();
+        return redirect()->route('telur.index')->with('success', 'data telur berhasil di hapus');
+
     }
 }

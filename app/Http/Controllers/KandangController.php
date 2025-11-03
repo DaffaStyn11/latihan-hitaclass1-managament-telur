@@ -51,7 +51,10 @@ class KandangController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $kandang = Kandang::findOrFail($id);
+        return Inertia::render('kandang/show', [
+            'arunika' => $kandang
+        ]);
     }
 
     /**
@@ -84,6 +87,9 @@ class KandangController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $kandangs = Kandang::findOrFail($id);
+        $kandangs->delete();
+        return redirect()->route('kandang.index')->with('success', 'data kandang berhasil di hapus');
+
     }
 }

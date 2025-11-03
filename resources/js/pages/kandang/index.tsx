@@ -1,5 +1,5 @@
 import React from "react";
-import {usePage} from "@inertiajs/react";
+import {router, usePage} from "@inertiajs/react";
 
 
 
@@ -19,6 +19,19 @@ interface CustomProps extends Record<string, unknown> {
 const KandangIndex: React.FC = () => {
     const {kandangs} = usePage<CustomProps>().props;
 
+    const handleDelete = (id : number) => {
+        if (confirm ("Yakin ingin menghapus kandang ini?")) {
+            router.delete(`kandang/${id}`, {
+                onSuccess: () => alert("Kandan berhasil dihapus"),
+                onError: () => alert ("Kandang gagal di hapus")
+            });
+        }
+    }
+
+    const handleShow = (id : number) => {
+        router.visit(`/kandang/${id}`)
+    }
+
     return (
         <div className="p-6">
             <h1 className="text-2xl font-bold mb-4">Daftar Kandang</h1>
@@ -33,6 +46,8 @@ const KandangIndex: React.FC = () => {
                             <th className="py-2 px-4 border-b">Lokasi</th>
                             <th className="py-2 px-4 border-b">Dibuat Pada</th>
                             <th className="py-2 px-4 border-b">Diupdate Pada</th>
+                            <th className="py-2 px-4 border-b">Aksi</th>
+
                                           </tr>
                                           </thead>
                                           <tbody className="text-center">
@@ -54,6 +69,16 @@ const KandangIndex: React.FC = () => {
                                                             hour: "2-digit",
                                                             minute: "2-digit",
                                                         }) : ''}
+                                                    </td>
+
+                                                    <td className="py-2 px-4 border-b">
+                                                        <button onClick={ () => handleShow(kandang.id)} className="bg-amber-400">
+                                                        Detail
+                                                        </button>
+                                                        <button onClick= { () => handleDelete(kandang.id)} className="bg-red-500">
+                                                        Hapus
+                                                        </button>
+
                                                     </td>
                                                 </tr>
                                             ))}
