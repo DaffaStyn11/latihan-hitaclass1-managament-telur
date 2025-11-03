@@ -1,1 +1,1 @@
-sekarang coba upload project ini di github ya mas
+GET, POST, PUT/ID, DELETE
