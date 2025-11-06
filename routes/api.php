@@ -4,4 +4,6 @@ use App\Http\Controllers\KandangController;
 use App\Http\Controllers\PakanController;
 
 Route::apiResource('kandang', KandangController::class);
+Route::apiResource('pakan', PakanController::class);
+
 

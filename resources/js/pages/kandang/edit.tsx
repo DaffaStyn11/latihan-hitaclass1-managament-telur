@@ -1,17 +1,16 @@
-import { router, usePage } from "@inertiajs/react";
-import { useState } from "react";
+import { router, usePage } from '@inertiajs/react';
+import { useState } from 'react';
 
-interface Kandang
-{
-    id: number,
-    nama_kandang: string,
-    jumlah_ayam: number,
-    lokasi: string,
+interface Kandang {
+    id: number;
+    nama_kandang: string;
+    jumlah_ayam: number;
+    lokasi: string;
 }
 
 const EditKandang: React.FC = () => {
-    const { props } = usePage<{ kandang: Kandang}>();
-    const {kandang} = props;
+    const { props } = usePage<{ kandang: Kandang }>();
+    const { kandang } = props;
 
     const [values, setValues] = useState({
         nama_kandang: kandang.nama_kandang || '',
@@ -20,7 +19,7 @@ const EditKandang: React.FC = () => {
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setValues({...values, [e.target.name]: e.target.value});
+        setValues({ ...values, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -28,9 +27,9 @@ const EditKandang: React.FC = () => {
         router.put(`/kandang/${kandang.id}`, values);
     };
 
-
     return (
-        <div className="mx-auto max-w-xl p-6">
+        <div className="flex justify-center items-center min-h-screen">
+        <div className="mx-auto max-w-xl rounded-xl border border-gray-200 p-6 shadow-sm dark:border-gray-700">
             <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Input Nama kandang */}
                 <div>
@@ -69,10 +68,15 @@ const EditKandang: React.FC = () => {
                     />
                 </div>
 
-                <button type="submit" title="update" className="rounded bg-amber-500 text-white hover:bg-amber-100">
+                <button
+                    type="submit"
+                    title="update"
+                    className="rounded-lg bg-amber-500 px-4 py-2 font-semibold text-white transition-colors duration-200 hover:bg-amber-600"
+                >
                     Update
                 </button>
             </form>
+        </div>
         </div>
     );
 

@@ -28,49 +28,55 @@ const CreatePenjualan: React.FC = () => {
     };
 
     return (
-        <div className="mx-auto max-w-xl p-6">
-            <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Input Nama jumlah telur */}
-                <div>
-                    <label className="mb-1 block font-medium">Jumlah Telur</label>
-                    <input
-                        type="text"
-                        placeholder="masukan jumlah telur"
-                        name="jumlah_telur"
-                        value={values.jumlah_telur}
-                        onChange={handleChange}
-                        className="w-full rounded border border-gray-300 px-3 py-2"
-                    />
-                </div>
+        <div className="flex min-h-screen items-center justify-center">
+            <div className="mx-auto max-w-xl rounded-xl border border-gray-200 p-6 shadow-sm dark:border-gray-700">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    {/* Input Nama jumlah telur */}
+                    <div>
+                        <label className="mb-1 block font-medium">Jumlah Telur</label>
+                        <input
+                            type="text"
+                            placeholder="masukan jumlah telur"
+                            name="jumlah_telur"
+                            value={values.jumlah_telur}
+                            onChange={handleChange}
+                            className="w-full rounded border border-gray-300 px-3 py-2"
+                        />
+                    </div>
 
-                <div>
-                    <label className="mb-1 block font-medium">Harga Satuan</label>
-                    <input
-                        type="number"
-                        placeholder="masukan harga satuan"
-                        name="harga_satuan"
-                        value={values.harga_satuan}
-                        onChange={handleChange}
-                        className="w-full rounded border border-gray-300 px-3 py-2"
-                    />
-                </div>
+                    <div>
+                        <label className="mb-1 block font-medium">Harga Satuan</label>
+                        <input
+                            type="number"
+                            placeholder="masukan harga satuan"
+                            name="harga_satuan"
+                            value={values.harga_satuan}
+                            onChange={handleChange}
+                            className="w-full rounded border border-gray-300 px-3 py-2"
+                        />
+                    </div>
 
-                <div>
-                    <label className="mb-1 block font-medium">Total Harga</label>
-                    <input
-                        type="text"
-                        placeholder="total harga"
-                        name="total_harga"
-                        value={values.total_harga}
-                        readOnly // agar tidak bisa diketik manual
-                        className="w-full rounded border border-gray-300 px-3 py-2"
-                    />
-                </div>
+                    <div>
+                        <label className="mb-1 block font-medium">Total Harga</label>
+                        <input
+                            type="text"
+                            placeholder="total harga"
+                            name="total_harga"
+                            value={values.total_harga}
+                            readOnly // agar tidak bisa diketik manual
+                            className="w-full rounded border border-gray-300 px-3 py-2"
+                        />
+                    </div>
 
-                <button type="submit" title="simpan" className="rounded bg-amber-500 text-white hover:bg-amber-100">
-                    Simpan
-                </button>
-            </form>
+                    <button
+                        type="submit"
+                        title="create"
+                        className="rounded-lg bg-amber-500 px-4 py-2 font-semibold text-white transition-colors duration-200 hover:bg-amber-600"
+                    >
+                        Simpan
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };

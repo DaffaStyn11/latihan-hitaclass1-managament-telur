@@ -53,7 +53,7 @@ class KandangController extends Controller
     {
         $kandang = Kandang::findOrFail($id);
         return Inertia::render('kandang/show', [
-            'arunika' => $kandang
+            'kandang' => $kandang
         ]);
     }
 

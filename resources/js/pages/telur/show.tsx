@@ -17,7 +17,7 @@ const TelurShow: React.FC = () =>{
         <div className="p-6">
             <h1 className="text-2xl font-bold mb-4">Detail Telur</h1>
 
-            <div className="bg-white rounded-lg shadow-md, p-4">
+            <div className="bg-white rounded-lg shadow-md p-4">
                 <p><strong>ID:</strong>{telur.id}</p>
                 <p><strong>Jumlah Telur:</strong>{telur.jumlah_telur}</p>
                 <p><strong>Harga Telur:</strong>{telur.harga_telur}</p>

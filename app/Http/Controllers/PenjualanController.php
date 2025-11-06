@@ -51,7 +51,10 @@ class PenjualanController extends Controller
      */
     public function show(string $id)
     {
-        //
+                $penjualan = Penjualan::findOrFail($id);
+        return Inertia::render('penjualan/show', [
+            'penjualan' => $penjualan
+        ]);
     }
 
     /**

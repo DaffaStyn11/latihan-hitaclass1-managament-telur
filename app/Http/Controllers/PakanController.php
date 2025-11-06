@@ -49,7 +49,10 @@ class PakanController extends Controller
      */
     public function show(string $id)
     {
-        //
+                $pakan = Pakan::findOrFail($id);
+        return Inertia::render('pakan/show', [
+            'pakan' => $pakan
+        ]);
     }
 
     /**
